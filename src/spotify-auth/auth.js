@@ -1,10 +1,5 @@
 const client_id = '5d874ba35d594372b1bbbb1a1ae939ac';
-const redirect_uri = 'http://localhost:3000/login'; // Your redirect uri
-
-// Restore tokens from localStorage
-// let access_token = localStorage.getItem('access_token') || null;
-// let refresh_token = localStorage.getItem('refresh_token') || null;
-// let expires_at = localStorage.getItem('expires_at') || null;
+const redirect_uri = 'http://localhost:3000/login';
 
 const getAccessToken = () => localStorage.getItem('access_token') || null;
 const getRefreshToken = () => localStorage.getItem('refresh_token') || null;
@@ -143,5 +138,14 @@ function processTokenResponse(data) {
   localStorage.setItem('expires_at', expires_at);
 }
 
-
-export { generateCodeChallenge, generateRandomString, redirectToSpotifyAuthorizeEndpoint, exchangeToken, refreshToken, logout, getAccessToken, getRefreshToken, getExpiresAt }
+export { 
+  generateCodeChallenge, 
+  generateRandomString, 
+  redirectToSpotifyAuthorizeEndpoint, 
+  exchangeToken, 
+  refreshToken, 
+  logout, 
+  getAccessToken, 
+  getRefreshToken, 
+  getExpiresAt
+}
