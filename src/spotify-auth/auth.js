@@ -71,11 +71,12 @@ function redirectToSpotifyAuthorizeEndpoint() {
 
 function exchangeToken(code) {
   const code_verifier = localStorage.getItem('code_verifier');
+  console.log('fetch')
 
   fetch('https://accounts.spotify.com/api/token', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+      'Content-Type': 'application/x-www-form-urlencoded'
     },
     body: new URLSearchParams({
       client_id,
@@ -87,10 +88,11 @@ function exchangeToken(code) {
   })
     .then(addThrowErrorToFetch)
     .then((data) => {
+      console.log(data)
       processTokenResponse(data);
 
       // clear search query params in the url
-      window.history.replaceState({}, document.title, '/');
+      window.history.replaceState({}, document.title, '/login');
     })
     .catch(handleError);
 }
@@ -126,6 +128,7 @@ async function addThrowErrorToFetch(response) {
 
 function logout() {
   localStorage.clear();
+  console.log('reload')
   window.location.reload();
 }
 
