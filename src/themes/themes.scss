@@ -4,5 +4,6 @@
 @mixin apply-theme($theme-name, $theme-map){
   .#{$theme-name} {
     background-color: map-get(map-get($theme-map, page), bg-color);
+    color: map-get(map-get($theme-map, page), color);
   }
 }

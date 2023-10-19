@@ -3,6 +3,7 @@ import { checkIsAuth, exchangeToken, redirectToSpotifyAuthorizeEndpoint } from "
 import Page from "../ui/Page";
 import { AppContext } from "../context/context";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 
 const Login = () => {
 
@@ -34,7 +35,7 @@ const Login = () => {
   return (
     <Page>
       <h1>Login</h1>
-      {!isLogged && <button onClick={onLoginClicked}>Login with Spotify</button>}
+      {!isLogged && <Button onClick={onLoginClicked}>Login with Spotify</Button>}
     </Page>
   );
 };
