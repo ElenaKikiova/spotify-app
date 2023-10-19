@@ -1,3 +1,5 @@
+import { redirect } from "react-router-dom";
+
 const client_id = '5d874ba35d594372b1bbbb1a1ae939ac';
 const redirect_uri = 'http://localhost:3000/login';
 
@@ -5,6 +7,32 @@ const getAccessToken = () => localStorage.getItem('access_token') || null;
 const getRefreshToken = () => localStorage.getItem('refresh_token') || null;
 const getExpiresAt = () => localStorage.getItem('expires_at') || null;
 
+const checkIsAuth = () => {
+  if (getAccessToken() && getRefreshToken()) {
+    // if user is signed in
+    
+    if(getExpiresAt() <= new Date()){
+      // user session has expired
+      logout();
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+  else {
+    return false;
+  }
+}
+
+const routeGuard = () => {
+  const isLogged = checkIsAuth();
+  console.log(isLogged)
+  if(!isLogged) {
+    return redirect('/login')
+  }
+  else return null;
+}
 
 function generateRandomString(length) {
   let text = '';
@@ -68,7 +96,7 @@ function exchangeToken(code) {
   const code_verifier = localStorage.getItem('code_verifier');
   console.log('fetch')
 
-  fetch('https://accounts.spotify.com/api/token', {
+  return fetch('https://accounts.spotify.com/api/token', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
@@ -147,5 +175,7 @@ export {
   logout, 
   getAccessToken, 
   getRefreshToken, 
-  getExpiresAt
+  getExpiresAt,
+  checkIsAuth,
+  routeGuard
 }
