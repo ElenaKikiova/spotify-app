@@ -1,0 +1,8 @@
+@import './light.scss';
+@import './dark.scss';
+
+@mixin apply-theme($theme-name, $theme-map){
+  .#{$theme-name} {
+    background-color: map-get(map-get($theme-map, page), bg-color);
+  }
+}

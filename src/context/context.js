@@ -1,17 +1,18 @@
 import { createContext, useState } from "react";
 
-
-const AppContext = createContext({
+const initialData = {
   isLogged: false,
   setIsLogged: () => {},
   darkTheme: false,
   setDarkTheme: () => {},
-});
+}
+
+const AppContext = createContext(initialData);
 
 const AppContextProvider = ({ children }) => {
   
-  const [isLogged, setIsLogged] = useState(false);
-  const [darkTheme, setDarkTheme] = useState(false);
+  const [isLogged, setIsLogged] = useState(initialData.isLogged);
+  const [darkTheme, setDarkTheme] = useState(initialData.darkTheme);
 
   const contextData = {
     isLogged,
