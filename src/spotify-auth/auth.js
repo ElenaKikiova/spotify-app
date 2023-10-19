@@ -1,6 +1,7 @@
 import { redirect } from "react-router-dom";
 
-const client_id = '5d874ba35d594372b1bbbb1a1ae939ac';
+const client_id = process.env.REACT_APP_CLIENT_ID;
+
 const redirect_uri = 'http://localhost:3000/login';
 
 const getAccessToken = () => localStorage.getItem('access_token') || null;
@@ -70,9 +71,6 @@ function redirectToSpotifyAuthorizeEndpoint() {
 
   generateCodeChallenge(codeVerifier).then((code_challenge) => {
     window.localStorage.setItem('code_verifier', codeVerifier);
-
-    // Redirect to example:
-    // GET https://accounts.spotify.com/authorize?response_type=code&client_id=77e602fc63fa4b96acff255ed33428d3&redirect_uri=http%3A%2F%2Flocalhost&scope=user-follow-modify&state=e21392da45dbf4&code_challenge=KADwyz1X~HIdcAG20lnXitK6k51xBP4pEMEZHmCneHD1JhrcHjE1P3yU_NjhBz4TdhV6acGo16PCd10xLwMJJ4uCutQZHw&code_challenge_method=S256
 
     window.location = generateUrlWithSearchParams(
       'https://accounts.spotify.com/authorize',
