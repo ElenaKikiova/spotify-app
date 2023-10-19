@@ -27,7 +27,6 @@ const checkIsAuth = () => {
 
 const routeGuard = () => {
   const isLogged = checkIsAuth();
-  console.log(isLogged)
   if(!isLogged) {
     return redirect('/login')
   }
@@ -111,7 +110,6 @@ function exchangeToken(code) {
   })
     .then(addThrowErrorToFetch)
     .then((data) => {
-      console.log(data)
       processTokenResponse(data);
 
       // clear search query params in the url
@@ -156,8 +154,6 @@ function logout() {
 }
 
 function processTokenResponse(data) {
-  console.log(data);
-
   const t = new Date();
   let expires_at = t.setSeconds(t.getSeconds() + data.expires_in);
 

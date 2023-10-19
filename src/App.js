@@ -2,10 +2,11 @@
 import './App.css';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Login from './components/Login';
+import Login from './pages/Login';
 import { AppContextProvider } from './context/context';
-import TopSongs from './components/TopSongs';
+import TopSongs from './pages/TopSongs';
 import { routeGuard } from './spotify-auth/auth';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,7 @@ function App() {
       <AppContextProvider>
         <RouterProvider router={router} />
       </AppContextProvider>
+      <ReactQueryDevtools initialIsOpen />
     </QueryClientProvider>
   );
 }
