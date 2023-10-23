@@ -10,7 +10,7 @@ import styles from "./Login.module.scss";
 
 const Login = () => {
 
-  const { isLogged, setIsLogged } = useContext(AppContext);
+  const { isLogged, setIsLogged, darkTheme } = useContext(AppContext);
   const args = new URLSearchParams(window.location.search);
   const code = args.get('code');
 
@@ -36,7 +36,7 @@ const Login = () => {
   };
 
   return (
-    <div className={globalStyles["emmerge-box"]}>
+    <div className={`${globalStyles["emmerge-box"]} bg`}>
       <motion.div
         initial={{ opacity: 0, scale: 0.3 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -45,7 +45,7 @@ const Login = () => {
           delay: 0.5,
           ease: [0, 0.71, 0.2, 1.01]
          }}
-        className={`${globalStyles["emmerge-element"]} ${globalStyles["small"]}`}
+        className={`${globalStyles["emmerge-element"]} ${globalStyles["small"]} content`}
       >
         <motion.div
           initial={{ opacity: 0 }}
@@ -53,7 +53,7 @@ const Login = () => {
           transition={{ 
             duration: 0.3,
             delay: 1
-           }}
+          }}
         >
           <h1>Spotify Stats</h1>
           <div className={styles.subtitle}>For nerds like you. Powered by Spotify API</div>

@@ -14,17 +14,15 @@ body {
 }
 
 .emmerge {
-
   &-box {
     @extend .fullscreen;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $accent;
+    color: $color;
   }
 
   &-element{
-    background-color: white;
     border-radius: 50%;
     position: absolute;
     text-align: center;

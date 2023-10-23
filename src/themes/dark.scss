@@ -1,10 +1,11 @@
 $bg-color: #343434;
 $color: #fcfcfc;
-$accent: #0fb9d1;
+$accent: #212121;
 
 $dark: (
   page: (
     bg-color: $bg-color,
-    color: $color
+    color: $color,
+    accent: $accent
   )
 )

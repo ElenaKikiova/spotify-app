@@ -4,7 +4,15 @@
 
 @mixin apply-theme($theme-name, $theme-map){
   .#{$theme-name} {
-    background-color: map-get(map-get($theme-map, page), bg-color);
+    background-color: map-get(map-get($theme-map, page), accent);
     color: map-get(map-get($theme-map, page), color);
+
+    &.has-text{
+      background-color: map-get(map-get($theme-map, page), bg-color);
+    }
+
+    &.bg{
+      background-color: map-get(map-get($theme-map, page), accent);
+    }
   }
 }

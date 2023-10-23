@@ -10,6 +10,8 @@ const Page = ({ showMenu = true, children }) => {
   const { darkTheme } = useContext(AppContext);
   const theme = useMemo(() => darkTheme ? 'dark' : 'light', [darkTheme]);
 
+  console.log(theme)
+
   return (
     <div className={`${globalStyles[theme]} fullscreen`}>
       { showMenu && <Menu /> }

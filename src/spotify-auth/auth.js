@@ -4,6 +4,12 @@ const client_id = process.env.REACT_APP_CLIENT_ID;
 
 const redirect_uri = 'http://localhost:3000/login';
 
+const SCOPE = [
+  "user-read-private",
+  "user-read-email",
+  "user-read-playback-state"
+]
+
 const getAccessToken = () => localStorage.getItem('access_token') || null;
 const getRefreshToken = () => localStorage.getItem('refresh_token') || null;
 const getExpiresAt = () => localStorage.getItem('expires_at') || null;
@@ -77,7 +83,7 @@ function redirectToSpotifyAuthorizeEndpoint() {
       {
         response_type: 'code',
         client_id,
-        scope: 'user-read-private user-read-email',
+        scope: SCOPE,
         code_challenge_method: 'S256',
         code_challenge,
         redirect_uri,
