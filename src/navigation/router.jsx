@@ -3,6 +3,7 @@ import { Navigate, createBrowserRouter } from "react-router-dom";
 import TopSongs from "../pages/TopSongs";
 import { routeGuard } from "../spotify-auth/auth";
 import Login from "../pages/Login";
+import Page from "../ui/Page";
 
 const router = createBrowserRouter([
   {
@@ -11,11 +12,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/login',
-    element: <Login />
+    element: <Page showMenu={false}><Login /></Page>
   },
   {
     path: '/top-songs',
-    element: <TopSongs />,
+    element: <Page><TopSongs /></Page>,
     loader: routeGuard
   }
 ]);

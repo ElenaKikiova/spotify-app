@@ -1,9 +1,12 @@
 import { useContext, useEffect } from "react";
 import { checkIsAuth, exchangeToken, redirectToSpotifyAuthorizeEndpoint } from "../spotify-auth/auth";
-import Page from "../ui/Page";
 import { AppContext } from "../context/context";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
+import { motion } from "framer-motion";
+
+import globalStyles from "../ui/Global.module.scss";
+import styles from "./Login.module.scss";
 
 const Login = () => {
 
@@ -33,10 +36,31 @@ const Login = () => {
   };
 
   return (
-    <Page>
-      <h1>Login</h1>
-      {!isLogged && <Button onClick={onLoginClicked}>Login with Spotify</Button>}
-    </Page>
+    <div className={globalStyles["emmerge-box"]}>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.3 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ 
+          duration: 0.8,
+          delay: 0.5,
+          ease: [0, 0.71, 0.2, 1.01]
+         }}
+        className={`${globalStyles["emmerge-element"]} ${globalStyles["small"]}`}
+      >
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ 
+            duration: 0.3,
+            delay: 1
+           }}
+        >
+          <h1>Spotify Stats</h1>
+          <div className={styles.subtitle}>For nerds like you. Powered by Spotify API</div>
+          {!isLogged && <Button onClick={onLoginClicked} className={globalStyles.spotified}>Log in with Spotify</Button>}
+        </motion.div>
+      </motion.div>
+    </div>
   );
 };
 
