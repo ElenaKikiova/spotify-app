@@ -8,7 +8,9 @@ const SCOPE = [
   "user-read-private",
   "user-read-email",
   "user-read-playback-state"
-]
+].join(" ");
+
+console.log(SCOPE)
 
 const getAccessToken = () => localStorage.getItem('access_token') || null;
 const getRefreshToken = () => localStorage.getItem('refresh_token') || null;
@@ -83,7 +85,7 @@ function redirectToSpotifyAuthorizeEndpoint() {
       {
         response_type: 'code',
         client_id,
-        scope: SCOPE,
+        scope: "user-read-private user-read-email",
         code_challenge_method: 'S256',
         code_challenge,
         redirect_uri,

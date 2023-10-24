@@ -29,8 +29,8 @@ const TopSongs = () => {
         { userData.data && <UserData data={userData.data} /> }
       </Box>
       <Box>
-        { userData.isPending && <Loading />}
-        { userDevices.isError && <ErrorMessage error={userData.error} />}
+        { userDevices.isPending && <Loading />}
+        { userDevices.isError && <ErrorMessage error={userDevices.error} />}
         { userDevices.data && userDevices.data[0] }
       </Box>
     </Box>
