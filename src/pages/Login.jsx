@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import { motion } from "framer-motion";
 
-import globalStyles from "../ui/Global.module.scss";
 import styles from "./Login.module.scss";
 
 const Login = () => {
@@ -36,7 +35,7 @@ const Login = () => {
   };
 
   return (
-    <div className={`${globalStyles["emmerge-box"]} bg`}>
+    <div className={`emmerge-box bg-accent fullscreen`}>
       <motion.div
         initial={{ opacity: 0, scale: 0.3 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -45,7 +44,7 @@ const Login = () => {
           delay: 0.5,
           ease: [0, 0.71, 0.2, 1.01]
          }}
-        className={`${globalStyles["emmerge-element"]} ${globalStyles["small"]} content`}
+        className={`emmerge-element small bg-content`}
       >
         <motion.div
           initial={{ opacity: 0 }}
@@ -57,7 +56,7 @@ const Login = () => {
         >
           <h1>Spotify Stats</h1>
           <div className={styles.subtitle}>For nerds like you. Powered by Spotify API</div>
-          {!isLogged && <Button onClick={onLoginClicked} className={globalStyles.spotified}>Log in with Spotify</Button>}
+          {!isLogged && <Button onClick={onLoginClicked} className="spotified">Log in with Spotify</Button>}
         </motion.div>
       </motion.div>
     </div>

@@ -1,0 +1,47 @@
+@import '../themes/themes.scss';
+
+.spotified {
+  background-color: $spotify !important;
+  color: var(--text-base,#000000) !important;
+  border-radius: 500px !important;
+  padding: 14px 32px !important;
+  font-weight: bold !important;
+  letter-spacing: 0.175rem !important;
+  * {
+    text-transform: uppercase;
+  }  
+}
+
+.emmerge {
+  &-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-element{
+    border-radius: 50%;
+    position: absolute;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.small {
+      width: 60vh;
+      height: 60vh;
+      min-width: 500px;
+      min-height: 500px;
+    }
+  }
+
+}
+
+.bg-accent {
+  @include theme-aware('background-color', 'accent');
+}
+
+.bg-content {
+  @include theme-aware('background-color', 'content');
+}

@@ -1,1 +1,14 @@
 $spotify: #1ed760;
+
+$themes: (
+  light: (
+    content: #fefefe,
+    color: #232323,
+    accent: #0fb9d1
+  ),
+  dark: (
+    content: #343434,
+    color: #fcfcfc,
+    accent: #212121
+  )
+)

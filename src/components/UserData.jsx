@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 
 import styles from './UserData.module.scss';
-import globalStyles from '../ui/Global.module.scss';
+import globalStyles from '../ui/Global.scss';
 import { Box, Button } from "@mui/material";
 
 const UserData = ({ data }) => {
@@ -36,7 +36,7 @@ const UserData = ({ data }) => {
         </h2>     
       </Box>
       
-      <Button onClick={goToSpotifyAccount} className={globalStyles.spotified}>Open in Spotify</Button>
+      <Button onClick={goToSpotifyAccount} className="spotified">Open in Spotify</Button>
     </div>
   </>
 };

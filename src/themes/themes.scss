@@ -1,18 +1,9 @@
 @import './colors.scss';
-@import './light.scss';
-@import './dark.scss';
 
-@mixin apply-theme($theme-name, $theme-map){
-  .#{$theme-name} {
-    background-color: map-get(map-get($theme-map, page), accent);
-    color: map-get(map-get($theme-map, page), color);
-
-    &.has-text{
-      background-color: map-get(map-get($theme-map, page), bg-color);
-    }
-
-    &.bg{
-      background-color: map-get(map-get($theme-map, page), accent);
-    }
+@mixin theme-aware($key, $color) {
+  @each $theme-name, $theme-color in $themes {
+      .#{$theme-name} & {
+        #{$key}: map-get(map-get($themes, $theme-name), $color)
+      }
   }
 }

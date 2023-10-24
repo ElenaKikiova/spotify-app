@@ -2,7 +2,7 @@ import { useContext, useMemo } from "react";
 import Menu from "./Menu";
 
 // Themes
-import globalStyles from './Global.module.scss';
+import './Global.scss';
 import { AppContext } from "../context/context";
 
 const Page = ({ showMenu = true, children }) => {
@@ -13,7 +13,7 @@ const Page = ({ showMenu = true, children }) => {
   console.log(theme)
 
   return (
-    <div className={`${globalStyles[theme]} fullscreen`}>
+    <div className={`${theme} fullscreen`}>
       { showMenu && <Menu /> }
       <div id="container">
         <>{ children }</>
