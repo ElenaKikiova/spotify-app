@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 
 import styles from './UserData.module.scss';
-import globalStyles from '../ui/Global.scss';
 import { Box, Button } from "@mui/material";
 
 const UserData = ({ data }) => {
@@ -25,7 +24,7 @@ const UserData = ({ data }) => {
   }
 
   return <>
-    <div className={`${styles.userData} ${globalStyles.content}`}>
+    <div className={`${styles.userData} content`}>
       <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         <div 
           className={styles['userData--profilePic']}

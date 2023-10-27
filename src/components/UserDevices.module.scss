@@ -1,0 +1,25 @@
+@import '../themes/colors.scss';
+
+.userDevices{
+  &--list{
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+
+    & > li {
+      cursor: pointer;
+      padding: 1rem;
+      border-radius: 1rem;
+  
+      &.active {
+        border: 2px solid $spotify;
+      }
+
+      div {
+        margin: 0.15rem 0;
+      }
+    }
+  }
+
+  
+}

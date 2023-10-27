@@ -1,11 +1,11 @@
 .userData{
-  padding: 1rem;
-  max-width: 500px;
-
   .userData--profilePic{
     width: 100px;
     height: 100px;
     background-size: contain;
     border-radius: 50%;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    margin: 1rem;
   }
 }

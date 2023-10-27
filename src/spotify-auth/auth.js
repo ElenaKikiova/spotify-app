@@ -85,7 +85,7 @@ function redirectToSpotifyAuthorizeEndpoint() {
       {
         response_type: 'code',
         client_id,
-        scope: "user-read-private user-read-email",
+        scope: SCOPE,
         code_challenge_method: 'S256',
         code_challenge,
         redirect_uri,

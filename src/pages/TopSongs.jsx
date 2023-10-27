@@ -7,6 +7,9 @@ import ErrorMessage from "../ui/ErrorMessage";
 import { Box } from "@mui/material";
 import { getUserDevices } from "../queries/devices";
 
+import styles from './TopSongs.module.scss'
+import UserDevices from "../components/UserDevices";
+
 const TopSongs = () => {
   
   const userData = useQuery({
@@ -22,16 +25,16 @@ const TopSongs = () => {
   console.log(userDevices.data)
 
   return (
-    <Box sx={{ display: 'grid', gridTemplateRows: 'repeat(3, 1fr)' }}>
-      <Box>
+    <Box className={`bg-accent fullscreen ${styles['content']}`}>
+      <Box className={`${styles['content-box']} bg-content`}>
         { userData.isPending && <Loading />}
         { userData.isError && <ErrorMessage error={userData.error} />}
         { userData.data && <UserData data={userData.data} /> }
       </Box>
-      <Box>
+      <Box className={`${styles['content-box']} bg-content`}>
         { userDevices.isPending && <Loading />}
         { userDevices.isError && <ErrorMessage error={userDevices.error} />}
-        { userDevices.data && userDevices.data[0] }
+        { userDevices.data && <UserDevices devices={userDevices.data} /> }
       </Box>
     </Box>
     
