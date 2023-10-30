@@ -1,8 +1,9 @@
 import { getAccessToken } from "../spotify-auth/auth";
 
 const URL = "https://api.spotify.com/v1";
+const accessToken = getAccessToken();
 const headers = {
-  Authorization: 'Bearer ' + getAccessToken(),
+  Authorization: 'Bearer ' + accessToken,
 }
 
 const handleError = async (response, errorMessage) => {
@@ -19,13 +20,10 @@ const httpWrapper = async (endpoint, errorMessage) => {
   });
   
   if (!response.ok) {
-    console.log(response)
     await handleError(response, errorMessage);
   };
 
   const data = await response.json();
-
-  console.log(data);
   return data;
 }
 
